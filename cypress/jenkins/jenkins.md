@@ -10,9 +10,10 @@ Explain the steps briefly.
 
 <!-- Solution -->
 
-```Jenkins Pipeline Design```
+
+Jenkins Pipeline Design
     Pipeline Triggers
-        The pipeline can be triggered in three ways:
+    The pipeline can be triggered in three ways:
             1. Manually (you start it).
             2. On a schedule (set a time).
             3. Automatically when a new build is created.
