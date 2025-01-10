@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Row Addition with Target Names</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 50%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .button[disabled] {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .button.enabled {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Table Row Addition with Target Names</h1>
+<p>Select a target name, then click "Add Row" to add rows to the table. After adding 3 rows, the "Execute" button will become enabled.</p>
+
+<!-- Target Name Dropdown -->
+<label for="targetName">Target Name:</label>
+<select id="targetName">
+    <option value="Cells">Cells</option>
+    <option value="Nuclei">Nuclei</option>
+    <option value="Organelles">Organelles</option>
+</select>
+
+<button id="addRowBtn" class="button">Add Row</button>
+<button id="executeBtn" class="button" disabled>Execute</button>
+
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Target Name</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <!-- Rows will be added here dynamically -->
+    </tbody>
+</table>
+
+<script>
+    let rowCount = 0;
+
+    const addRowBtn = document.getElementById('addRowBtn');
+    const executeBtn = document.getElementById('executeBtn');
+    const tableBody = document.getElementById('tableBody');
+    const targetNameSelect = document.getElementById('targetName');
+
+    addRowBtn.addEventListener('click', () => {
+        // Increase the row count
+        rowCount++;
+
+        // Get the selected target name
+        const selectedTargetName = targetNameSelect.value;
+
+        // Create a new row
+        const newRow = document.createElement('tr');
+        const cellIndex = document.createElement('td');
+        const cellTarget = document.createElement('td');
+
+        // Set the content of the cells
+        cellIndex.textContent = rowCount;
+        cellTarget.textContent = selectedTargetName;
+
+        // Append cells to the row
+        newRow.appendChild(cellIndex);
+        newRow.appendChild(cellTarget);
+
+        // Append the row to the table body
+        tableBody.appendChild(newRow);
+
+        // Enable the "Execute" button if there are 3 or more rows
+        if (rowCount >= 3) {
+            executeBtn.disabled = false;
+            executeBtn.classList.add('enabled');
+        }
+    });
+
+    executeBtn.addEventListener('click', () => {
+        alert('Execute button pressed!');
+        // Add any additional logic for the "Execute" button here
+    });
+</script>
+
+</body>
+</html>
