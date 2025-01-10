@@ -1,21 +1,20 @@
-/*
-  3. Assume the created rows are draggable and can be rearranged. Is this achievable in Cypress? Describe possible methods for implementing drag-and-drop functionality.
+3. Assume the created rows are draggable and can be rearranged. Is this achievable in Cypress? Describe possible methods for implementing drag-and-drop functionality.
 
-      Answer:
+    Answer:
 
-      Yes, drag and drop functionality is achievable in Cypress. We can achieve it by using the following methods:
+    Yes, drag and drop functionality is achievable in Cypress. We can achieve it by using the following methods:
 
-        Using the Cypress's Built-in trigger Command: 
-            This method simulates mouse events like dragging and dropping manually. 
-            We can use it to trigger actions like mouse down, move, and up to mimic the drag-and-drop interaction.
-            Documentation (https://docs.cypress.io/api/commands/trigger).
+      Using the Cypress's Built-in trigger Command: 
+          This method simulates mouse events like dragging and dropping manually. 
+          We can use it to trigger actions like mouse down, move, and up to mimic the drag-and-drop interaction.
+          Documentation (https://docs.cypress.io/api/commands/trigger).
 
-        Using the @4tw/cypress-drag-drop Plugin: This plugin simplifies drag-and-drop actions by providing a built-in drag command, 
-            making it easier to implement drag-and-drop functionality in your tests.
-            Documentation (https://github.com/4teamwork/cypress-drag-drop).
+      Using the @4tw/cypress-drag-drop Plugin: This plugin simplifies drag-and-drop actions by providing a built-in drag command, 
+          making it easier to implement drag-and-drop functionality in your tests.
+          Documentation (https://github.com/4teamwork/cypress-drag-drop).
 
-      In below example I used the cypress drag and drop plugin
-*/ 
+    In below example I used the cypress drag and drop plugin
+ 
 
   Scenario: Drag and drop the rows and verify the name changes
     Given the user is on the "Table Row Addition" page
